@@ -15,20 +15,9 @@ import selectedChannel from './reducers/selected_channel_reducer';
 
 // initial state
 const initialState = {
-  messages: [
-    {
-      "author":"anonymous92",
-      "content":"Hello world!",
-      "created_at":"2017-09-26T23:03:16.365Z"
-    },
-    {
-      "author":"anonymous77",
-      "content":"My name is anonymous77",
-      "created_at":"2017-09-26T23:03:21.194Z"
-    }
-  ],
+  messages: [],
   channels: ["general", "react", "paris"],
-  selectedChannel: "general",
+  selectedChannel: "paris",
   currentUser: prompt("What's your username ?", `anonymous${Math.floor(10 + (Math.random() * 90))}`)
 };
 
@@ -44,7 +33,7 @@ const middlewares = composeEnhancers(applyMiddleware(reduxPromise, logger));
 
 // render an instance of the component in the DOM
 ReactDOM.render(
-  <Provider store={createStore(reducers, {messages: initialState.messages}, middlewares)}>
+  <Provider store={createStore(reducers, {messages: initialState.messages, selectedChannel: initialState.selectedChannel}, middlewares)}>
     <App />
   </Provider>,
   document.getElementById('root')
