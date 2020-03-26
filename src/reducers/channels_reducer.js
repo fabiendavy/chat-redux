@@ -1,10 +1,10 @@
 export default function(state = null, action) {
   if (state === undefined) {
-    return [];
+    return null;
   }
 
   switch(action.type) {
-    // case
+
     default:
       return state;
   }

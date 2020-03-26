@@ -12,10 +12,15 @@ class MessageList extends Component {
 
   render() {
     return(
-      <div className="message-list">
-        {this.props.allMessages.map((message) => {
-          return <Message message={message} key={message.created_at} />
-        })}
+      <div className="channel-container">
+        <div className="channel-title">
+          <span>Channel #{this.props.selectedChannel}</span>
+        </div>
+        <div className="channel-content">
+          {this.props.allMessages.map((message) => {
+              return <Message message={message} key={message.created_at} />
+            })}
+        </div>
       </div>
     );
   }
@@ -26,7 +31,9 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) { return {
-  allMessages: state.messages };
-}
+    allMessages: state.messages,
+    selectedChannel: state.selectedChannel
+  }
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(MessageList);
