@@ -21,7 +21,7 @@ class MessageForm extends Component {
 
   render() {
     return(
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} >
         <div className="message-form">
           <input type="text" className="form-control" value={this.state.value} onChange={this.handleChange} />
           <input type="submit" value="Send" />
